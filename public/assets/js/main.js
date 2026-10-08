@@ -20,7 +20,7 @@ const CATEGORIAS = {
 };
 const SEXOS = { yegua: 'Yegua', caballo: 'Caballo', castrado: 'Castrado', pony: 'Pony' };
 
-const emptyState = msg => `<div class="empty">${icon('i-shoe', '')}<p>${msg}</p></div>`;
+const emptyState = msg => `<div class="empty">${icon('i-logo', '')}<p>${msg}</p></div>`;
 
 /* ------------------------------------------------------------------ */
 /*  Navegación                                                         */
@@ -119,7 +119,7 @@ function renderHorses() {
   grid.innerHTML = caballos.map(c => `
     <button class="horse reveal" data-horse="${c.id}" aria-label="Conocer a ${esc(c.nombre)}">
       ${c.foto_url ? `<img src="${esc(c.foto_url)}" alt="${esc(c.nombre)}" loading="lazy" decoding="async">`
-                   : `<span class="horse__noimg">${icon('i-shoe', '')}</span>`}
+                   : `<span class="horse__noimg">${icon('i-logo', '')}</span>`}
       <span class="horse__body">
         <span class="horse__name">${esc(c.nombre)}</span>
         <span class="horse__meta">${esc(horseMeta(c) || c.disciplina || '')}</span>

@@ -343,7 +343,7 @@ function renderHorses() {
   if (!caballos.length) { el.innerHTML = '<div class="empty" style="grid-column:1/-1">Añade el primer caballo con «Nuevo caballo».</div>'; return; }
   el.innerHTML = caballos.map(c => `
     <article class="card">
-      <div class="card__img">${c.foto_url ? `<img src="${esc(c.foto_url)}" alt="" loading="lazy">` : '<svg><use href="#i-shoe"/></svg>'}</div>
+      <div class="card__img">${c.foto_url ? `<img src="${esc(c.foto_url)}" alt="" loading="lazy">` : '<svg><use href="#i-logo"/></svg>'}</div>
       <div class="card__body">
         <div>
           <strong>${esc(c.nombre)}</strong>
