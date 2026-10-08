@@ -6,8 +6,8 @@
 //  Esta clave es pública por diseño: la seguridad la aplican las políticas RLS
 //  definidas en supabase/schema.sql.
 // =====================================================================
-export const SUPABASE_URL = 'https://TU-PROYECTO.supabase.co';
-export const SUPABASE_KEY = 'TU-CLAVE-PUBLICA-ANON';
+export const SUPABASE_URL = 'https://yzdmbkgtofhlriasqlyi.supabase.co';
+export const SUPABASE_KEY = 'sb_publishable_b8_7C_vg-NnslUb07fI6Hg_OkSLLSHv';
 
 export const STORAGE_BUCKET = 'media';
 
