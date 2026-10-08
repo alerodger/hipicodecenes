@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https://*.supabase.co; connect-src 'self' https://*.supabase.co https://cdn.jsdelivr.net; base-uri 'self'; form-action 'self'">
+  <title>Panel · Club Hípico de Cenes</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <script type="module" src="../assets/js/admin.js"></script>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-shoe" viewBox="0 0 64 64"><path d="M15 9c-5 11-6 25 1 35 7 10 25 10 32 0 7-10 6-24 1-35" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></symbol>
+      <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+      <symbol id="i-horse" viewBox="0 0 24 24"><path d="M6.5 21h11M7.5 21v-1.5h9V21"/><path d="M8.5 19.5c0-3.5 1.6-5.3 3-7l-3.4 1.2c-1.5.5-3-.6-2.8-2.1l.2-1L9 6l2-2.6.9 1.9c3.4.4 5.6 3.4 5.6 8.2v6"/><circle cx="10.3" cy="8.6" r=".5" fill="currentColor"/></symbol>
+      <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="m13.5 6.5 4 4"/></symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+      <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></symbol>
+      <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></symbol>
+      <symbol id="i-out" viewBox="0 0 24 24"><path d="M15 4h4v16h-4M10 8l-4 4 4 4M6 12h10"/></symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></symbol>
+      <symbol id="i-reply" viewBox="0 0 24 24"><path d="M10 8 4 13l6 5M4 13h11a5 5 0 0 1 5 5"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- ============ LOGIN ============ -->
+  <main class="auth" id="view-login" hidden>
+    <form class="auth__card" id="login-form">
+      <svg class="auth__mark"><use href="#i-shoe"/></svg>
+      <h1>Panel del club</h1>
+      <p class="muted">Club Hípico de Cenes</p>
+      <label>Email<input type="email" name="email" required autocomplete="username"></label>
+      <label>Contraseña<input type="password" name="password" required autocomplete="current-password"></label>
+      <button class="btn btn--primary btn--block" type="submit">Entrar</button>
+      <button class="link" type="button" id="forgot">¿Has olvidado la contraseña?</button>
+      <p class="auth__msg" id="login-msg" role="alert"></p>
+      <a class="link" href="../">← Volver a la web</a>
+    </form>
+  </main>
+
+  <!-- ============ NUEVA CONTRASEÑA ============ -->
+  <main class="auth" id="view-reset" hidden>
+    <form class="auth__card" id="reset-form">
+      <svg class="auth__mark"><use href="#i-shoe"/></svg>
+      <h1>Nueva contraseña</h1>
+      <label>Contraseña nueva<input type="password" name="password" required minlength="8" autocomplete="new-password"></label>
+      <button class="btn btn--primary btn--block" type="submit">Guardar contraseña</button>
+      <p class="auth__msg" id="reset-msg" role="alert"></p>
+    </form>
+  </main>
+
+  <!-- ============ APP ============ -->
+  <div class="app" id="view-app" hidden>
+    <aside class="side">
+      <a class="side__brand" href="../" target="_blank" rel="noopener">
+        <svg><use href="#i-shoe"/></svg>
+        <span>Club Hípico<em>de Cenes</em></span>
+      </a>
+      <nav class="side__nav" aria-label="Secciones">
+        <button class="side__link is-active" data-tab="eventos"><svg class="icon"><use href="#i-cal"/></svg><span>Eventos</span></button>
+        <button class="side__link" data-tab="caballos"><svg class="icon"><use href="#i-horse"/></svg><span>Caballos</span></button>
+        <button class="side__link" data-tab="fotos"><svg class="icon"><use href="#i-image"/></svg><span>Fotos</span></button>
+        <button class="side__link" data-tab="mensajes"><svg class="icon"><use href="#i-mail"/></svg><span>Mensajes</span><b class="pill" id="unread" hidden></b></button>
+      </nav>
+      <div class="side__foot">
+        <span class="side__user" id="user-email"></span>
+        <a class="side__link" href="../" target="_blank" rel="noopener"><svg class="icon"><use href="#i-eye"/></svg><span>Ver la web</span></a>
+        <button class="side__link" id="logout"><svg class="icon"><use href="#i-out"/></svg><span>Salir</span></button>
+      </div>
+    </aside>
+
+    <main class="content">
+      <!-- EVENTOS -->
+      <section class="panel" id="tab-eventos">
+        <header class="panel__head">
+          <div><h1>Eventos</h1><p class="muted">Concursos, clinics, rutas, campamentos… Los borradores no se muestran en la web.</p></div>
+          <button class="btn btn--primary" id="new-event"><svg class="icon"><use href="#i-plus"/></svg>Nuevo evento</button>
+        </header>
+        <div class="list" id="events-admin"></div>
+      </section>
+
+      <!-- CABALLOS -->
+      <section class="panel" id="tab-caballos" hidden>
+        <header class="panel__head">
+          <div><h1>Caballos</h1><p class="muted">Se muestran en «Conoce a nuestros caballos», ordenados por el campo «orden».</p></div>
+          <button class="btn btn--primary" id="new-horse"><svg class="icon"><use href="#i-plus"/></svg>Nuevo caballo</button>
+        </header>
+        <div class="cards" id="horses-admin"></div>
+      </section>
+
+      <!-- FOTOS -->
+      <section class="panel" id="tab-fotos" hidden>
+        <header class="panel__head">
+          <div><h1>Fotos</h1><p class="muted">Marca con <svg class="icon icon--inline"><use href="#i-star"/></svg> las fotos de <strong>portada</strong> (se muestran a pantalla completa al abrir la web). Las fotos de «Instalaciones» ilustran esa sección.</p></div>
+          <span class="muted" id="photo-count"></span>
+        </header>
+        <form class="uploader" id="upload-form">
+          <label class="drop" id="drop">
+            <input type="file" id="files" accept="image/*" multiple hidden>
+            <svg class="icon"><use href="#i-upload"/></svg>
+            <strong>Arrastra aquí tus fotos o haz clic para elegirlas</strong>
+            <span class="muted">Se optimizan automáticamente antes de subirlas (WebP, máx. 2000 px)</span>
+          </label>
+          <div class="uploader__opts">
+            <label>Categoría
+              <select id="upload-cat">
+                <option value="club">Club</option><option value="clases">Clases</option>
+                <option value="competiciones">Competiciones</option><option value="caballos">Caballos</option>
+                <option value="instalaciones">Instalaciones</option><option value="eventos">Eventos</option>
+              </select>
+            </label>
+            <label>Pie de foto (opcional)<input id="upload-title" maxlength="160" placeholder="p. ej. Concurso social de primavera"></label>
+          </div>
+          <ul class="queue" id="queue"></ul>
+        </form>
+        <div class="photos" id="photos-admin"></div>
+        <div class="center"><button class="btn" id="photos-more" hidden>Cargar más</button></div>
+      </section>
+
+      <!-- MENSAJES -->
+      <section class="panel" id="tab-mensajes" hidden>
+        <header class="panel__head">
+          <div><h1>Mensajes</h1><p class="muted">Recibidos desde el formulario de contacto de la web.</p></div>
+        </header>
+        <div class="list" id="messages-admin"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ============ FORMULARIO EVENTO ============ -->
+  <dialog class="sheet" id="event-dialog">
+    <form id="event-form" method="dialog">
+      <header class="sheet__head">
+        <h2 id="event-form-title">Nuevo evento</h2>
+        <button type="button" class="icon-btn" data-close aria-label="Cerrar"><svg class="icon"><use href="#i-close"/></svg></button>
+      </header>
+      <div class="sheet__body grid">
+        <label class="span-2">Título *<input name="titulo" required minlength="3" maxlength="140"></label>
+        <label>Categoría
+          <select name="categoria">
+            <option value="competicion">Competición</option><option value="clinic">Clinic / curso</option>
+            <option value="campamento">Campamento</option><option value="ruta">Ruta</option>
+            <option value="jornada">Jornada / puertas abiertas</option><option value="social">Social</option>
+            <option value="otro">Otro</option>
+          </select>
+        </label>
+        <label>Hora<input name="hora" maxlength="60" placeholder="p. ej. 10:00 – 14:00"></label>
+        <label>Fecha de inicio *<input name="fecha_inicio" type="date" required></label>
+        <label>Fecha de fin<input name="fecha_fin" type="date"></label>
+        <label>Lugar<input name="lugar" maxlength="160" placeholder="Club Hípico de Cenes"></label>
+        <label>Precio<input name="precio" maxlength="80" placeholder="p. ej. 25 € · Gratuito"></label>
+        <label class="span-2"><span>Resumen <small>(aparece en la lista, máx. 280)</small></span><textarea name="resumen" rows="2" maxlength="280"></textarea></label>
+        <label class="span-2">Descripción completa<textarea name="descripcion" rows="7" maxlength="8000"></textarea></label>
+        <label class="span-2"><span>Enlace externo <small>(inscripciones, cartel…)</small></span><input name="enlace" type="url" maxlength="500" placeholder="https://"></label>
+        <div class="span-2 imgfield">
+          <div class="imgfield__preview" id="event-preview"></div>
+          <div>
+            <label class="btn"><input type="file" accept="image/*" id="event-image" hidden><svg class="icon"><use href="#i-upload"/></svg>Elegir imagen</label>
+            <button type="button" class="btn btn--ghost" id="event-image-remove">Quitar imagen</button>
+          </div>
+        </div>
+        <label class="switch span-2"><input type="checkbox" name="publicado" checked><span></span>Publicado (visible en la web)</label>
+      </div>
+      <footer class="sheet__foot">
+        <button type="button" class="btn btn--ghost" data-close>Cancelar</button>
+        <button type="submit" class="btn btn--primary" value="save">Guardar evento</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <!-- ============ FORMULARIO CABALLO ============ -->
+  <dialog class="sheet" id="horse-dialog">
+    <form id="horse-form" method="dialog">
+      <header class="sheet__head">
+        <h2 id="horse-form-title">Nuevo caballo</h2>
+        <button type="button" class="icon-btn" data-close aria-label="Cerrar"><svg class="icon"><use href="#i-close"/></svg></button>
+      </header>
+      <div class="sheet__body grid">
+        <label>Nombre *<input name="nombre" required maxlength="60"></label>
+        <label>Raza<input name="raza" maxlength="80" placeholder="p. ej. PRE, Hannoveriano, Árabe…"></label>
+        <label>Sexo
+          <select name="sexo">
+            <option value="">—</option><option value="yegua">Yegua</option><option value="caballo">Caballo</option>
+            <option value="castrado">Castrado</option><option value="pony">Pony</option>
+          </select>
+        </label>
+        <label>Año de nacimiento<input name="anio_nacimiento" type="number" min="1980" max="2100" placeholder="p. ej. 2012"></label>
+        <label>Capa (color)<input name="capa" maxlength="60" placeholder="p. ej. Tordo, castaño…"></label>
+        <label>Alzada<input name="alzada" maxlength="20" placeholder="p. ej. 1,65 m"></label>
+        <label class="span-2">Disciplina / uso<input name="disciplina" maxlength="80" placeholder="p. ej. Escuela · Salto"></label>
+        <label class="span-2"><span>Carácter <small>(frase corta que aparece en la tarjeta)</small></span><input name="caracter" maxlength="160" placeholder="p. ej. Noble, paciente y el favorito de los peques"></label>
+        <label class="span-2">Su historia<textarea name="descripcion" rows="6" maxlength="4000"></textarea></label>
+        <div class="span-2 imgfield">
+          <div class="imgfield__preview imgfield__preview--tall" id="horse-preview"></div>
+          <div>
+            <label class="btn"><input type="file" accept="image/*" id="horse-image" hidden><svg class="icon"><use href="#i-upload"/></svg>Elegir foto</label>
+            <button type="button" class="btn btn--ghost" id="horse-image-remove">Quitar foto</button>
+            <p class="muted small">Recomendado: foto vertical (retrato).</p>
+          </div>
+        </div>
+        <label><span>Orden <small>(menor = primero)</small></span><input name="orden" type="number" value="0"></label>
+        <label class="switch"><input type="checkbox" name="visible" checked><span></span>Visible en la web</label>
+      </div>
+      <footer class="sheet__foot">
+        <button type="button" class="btn btn--ghost" data-close>Cancelar</button>
+        <button type="submit" class="btn btn--primary" value="save">Guardar caballo</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+</body>
+</html>

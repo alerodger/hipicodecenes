@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Página no encontrada · Club Hípico de Cenes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Manrope:wght@400;600&display=swap">
+  <!-- Estilos incluidos aquí: esta página se sirve en cualquier ruta, así que no puede depender de rutas relativas -->
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; min-height: 100svh; display: grid; place-items: center; text-align: center; padding: 2rem 1rem;
+      font: 400 1rem/1.7 "Manrope", system-ui, sans-serif; color: rgba(255,255,255,.88);
+      background:
+        radial-gradient(1200px 600px at 80% 10%, rgba(184,145,89,.25), transparent 60%),
+        radial-gradient(900px 700px at 0% 100%, rgba(122,78,49,.35), transparent 60%),
+        linear-gradient(160deg, #24372d 0%, #1c2a23 55%, #141e19 100%);
+    }
+    svg { width: 56px; height: 56px; color: #b89159; }
+    p.eyebrow { margin: 1.2rem 0 1rem; font-size: .75rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: #cfae7b; }
+    h1 { margin: 0 0 1.2rem; font: 600 clamp(2.6rem, 8vw, 5.5rem)/1 "Cormorant Garamond", Georgia, serif; color: #fff; letter-spacing: -.02em; }
+    h1 em { font-weight: 500; color: #cfae7b; }
+    a {
+      display: inline-block; margin-top: 1.4rem; padding: .95rem 1.6rem; border-radius: 999px; text-decoration: none;
+      font-weight: 600; background: #b89159; color: #1c2a23; transition: background .25s;
+    }
+    a:hover { background: #cfae7b; }
+  </style>
+</head>
+<body>
+  <main>
+    <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M15 9c-5 11-6 25 1 35 7 10 25 10 32 0 7-10 6-24 1-35" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
+    <p class="eyebrow">Error 404</p>
+    <h1>Este camino<br><em>no lleva a la cuadra</em></h1>
+    <p>La página que buscas no existe o se ha movido.</p>
+    <a id="home" href="/">Volver al inicio</a>
+  </main>
+  <script>
+    // En usuario.github.io/repositorio/ la portada está en /repositorio/
+    var seg = location.pathname.split('/')[1];
+    if (/\.github\.io$/.test(location.hostname) && seg) document.getElementById('home').href = '/' + seg + '/';
+  </script>
+</body>
+</html>

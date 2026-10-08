@@ -1,0 +1,12 @@
+{
+  "name": "Club Hípico de Cenes",
+  "short_name": "Hípico Cenes",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#faf7f1",
+  "theme_color": "#1c2a23",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "assets/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
