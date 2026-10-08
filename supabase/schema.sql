@@ -60,7 +60,7 @@ create table if not exists public.eventos (
 create index if not exists eventos_fecha_idx on public.eventos (fecha_inicio);
 
 create or replace function public.touch_updated_at()
-returns trigger language plpgsql as $$
+returns trigger language plpgsql set search_path = public as $$
 begin
   new.updated_at = now();
   return new;
@@ -189,6 +189,19 @@ $$;
 drop trigger if exists mensajes_limite on public.mensajes;
 create trigger mensajes_limite before insert on public.mensajes
   for each row execute function public.limitar_mensajes();
+
+-- ---------------------------------------------------------------------
+--  Permisos de la API
+--  Las reglas RLS de arriba siguen decidiendo qué filas puede ver o cambiar
+--  cada uno. Esto es necesario en proyectos donde Supabase no expone
+--  automáticamente las tablas nuevas.
+-- ---------------------------------------------------------------------
+grant usage on schema public to anon, authenticated;
+grant select on public.eventos, public.caballos, public.fotos to anon, authenticated;
+grant insert, update, delete on public.eventos, public.caballos, public.fotos to authenticated;
+grant insert on public.mensajes to anon, authenticated;
+grant select, update, delete on public.mensajes to authenticated;
+grant select on public.admins to authenticated;
 
 -- ---------------------------------------------------------------------
 --  Almacenamiento de imágenes (bucket público "media")
