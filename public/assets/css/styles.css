@@ -464,3 +464,11 @@ dialog::backdrop { background: rgba(14,20,17,.78); backdrop-filter: blur(4px); }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ---------- aviso de boceto (quitar cuando la web sea oficial) ---------- */
+.draft-badge {
+  position: fixed; left: 1rem; bottom: 1.2rem; z-index: 40; margin: 0;
+  padding: .45rem .9rem; border-radius: 999px; font-size: .75rem; font-weight: 600; letter-spacing: .04em;
+  background: rgba(28,42,35,.85); color: var(--gold-2); border: 1px solid rgba(207,174,123,.35);
+  backdrop-filter: blur(6px); pointer-events: none;
+}

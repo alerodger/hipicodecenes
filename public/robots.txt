@@ -1,5 +1,8 @@
+# BOCETO: mientras la web sea una propuesta, no se indexa.
+# Cuando sea oficial, sustituir por:
+#   User-agent: *
+#   Allow: /
+#   Disallow: /admin/
+#   Sitemap: https://hipicodecenes.com/sitemap.xml
 User-agent: *
-Allow: /
-Disallow: /admin/
-
-Sitemap: https://hipicodecenes.com/sitemap.xml
+Disallow: /
